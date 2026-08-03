@@ -15,6 +15,11 @@ export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export SUDO_PROMPT="Deploying root access for %u. Password pls: "
 export BAT_THEME="base16"
 
+# Use the systemd socket-activated ssh-agent
+if [[ -z "$SSH_AUTH_SOCK" && -S "/run/user/$UID/ssh-agent.socket" ]]; then
+  export SSH_AUTH_SOCK="/run/user/$UID/ssh-agent.socket"
+fi
+
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
