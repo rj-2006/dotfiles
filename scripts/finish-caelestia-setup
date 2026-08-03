@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo="${HOME}/.local/share/caelestia"
+backup="${HOME}/.config/hypr.pre-caelestia"
+
+if [[ ! -d "${repo}" ]]; then
+  echo "Missing ${repo}. Clone the repo first."
+  exit 1
+fi
+
+echo "Validating sudo access..."
+sudo -v
+
+yay --sudoloop --answerclean None --answerdiff None -Bi "${repo}" --noconfirm
+
+mkdir -p "${HOME}/.config" "${HOME}/.config/caelestia"
+
+if [[ -e "${HOME}/.config/hypr" && ! -e "${backup}" ]]; then
+  mv "${HOME}/.config/hypr" "${backup}"
+fi
+
+ln -sfn "${repo}/hypr" "${HOME}/.config/hypr"
+
+if [[ -d "${repo}/uwsm" ]]; then
+  ln -sfn "${repo}/uwsm" "${HOME}/.config/uwsm"
+fi
+
+chmod +x "${HOME}/.config/hypr/scripts/wsaction.fish"
+
+echo "Caelestia is wired in."
+echo "Previous Hypr config backup: ${backup}"
+echo "Log out, choose Hyprland or Hyprland (uwsm) in SDDM, and sign in."

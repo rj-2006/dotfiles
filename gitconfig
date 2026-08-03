@@ -1,0 +1,15 @@
+[user]
+	email = keturahu295@gmail.com
+	name = rahul
+[alias]
+	ci = commit
+	co = checkout
+	br = branch
+	st = status
+	lg = log --oneline --graph --all --decorate
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	df = diff
+	dfc = diff --cached
+[push]
+	autoSetupRemote = true

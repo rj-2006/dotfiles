@@ -1,0 +1,13 @@
+# nvim runtime/generated — never track
+.config/nvim/plugin/packer_compiled.lua
+.config/nvim/.lazy
+.config/nvim/after
+
+# shell history / cache
+zhistory
+zcompdump*
+zcompdump.*.zwc
+
+# misc
+*.log
+.DS_Store
