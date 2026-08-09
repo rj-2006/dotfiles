@@ -8,6 +8,7 @@ Personal configs for CachyOS — a **niri** + illogical-impulse setup.
 |-----------------|-----------------------|-------------------------------|
 | `.config/nvim`  | `~/.config/nvim`      | Neovim (LazyVim) config       |
 | `.config/kitty` | `~/.config/kitty`     | Kitty terminal + themes       |
+| `.config/codeforces` | `~/.config/codeforces` | Codeforces dark CSS theme (Stylus) |
 | `gitconfig`     | `~/.gitconfig`        | Git aliases & identity        |
 | `zshrc`         | `~/.zshrc`            | Zsh config, dev aliases       |
 | `scripts/`      | `~/.local/bin`        | Dev / env helper scripts      |

@@ -1,0 +1,468 @@
+/* ==UserStyle==
+@name         Codeforces Tokyo Night (Zen base)
+@version      2026.08.09
+@namespace    userstyles.world/user/mslxl
+@description  Codeforces Zen mode & dark mode — re-skinned in Tokyo Night.
+
+              Layout/focus-mode features and base taken from
+              "Codeforces Zen" (mslxl, fork of Serpong's Zenmode extension);
+              all grays recolored to the Tokyo Night palette used by the
+              emilia.conf kitty theme in this dotfiles repo
+              (#1a1b26 bg, #c0caf5 fg, #7aa2f7 blue, #bb9af7 purple, ...).
+
+              ALL colors live in the :root block below. To switch palettes,
+              replace that block with palettes/nord.css or palettes/dracula.css.
+@author       mslxl, recolored by rudra
+@license      No License
+==/UserStyle== */
+
+@-moz-document url-prefix("https://codeforces.com") {
+
+/* ------------------------------------------------------------------
+ * PALETTE — Tokyo Night
+ * ------------------------------------------------------------------ */
+:root {
+  --bg:            #1a1b26;   /* page background                     */
+  --bg-deep:       #16161e;   /* darkest rows, code blocks           */
+  --bg-panel:      #1f2335;   /* cards / panels                      */
+  --bg-panel-2:    #24283b;   /* raised panels / hover               */
+  --bg-panel-3:    #2a3040;   /* stronger hover / active             */
+  --bg-sunken:     #15161e;   /* inputs, sunken areas                */
+
+  --fg:            #c0caf5;   /* primary text                        */
+  --fg-dim:        #a9b1d6;   /* secondary                           */
+  --fg-faint:      #565f89;   /* muted / disabled                    */
+
+  --border:        #414868;
+  --border-soft:   #32364f;
+
+  --blue:          #7aa2f7;   /* links / accent                      */
+  --purple:        #bb9af7;   /* secondary accent                    */
+  --cyan:          #7dcfff;   /* info                                */
+  --teal:          #73daca;
+  --green:         #9ece6a;   /* accepted / solved                   */
+  --yellow:        #e0af68;   /* pending / warns                     */
+  --orange:        #ff9e64;   /* +delta                              */
+  --red:           #f7768e;   /* wrong / -delta                      */
+  --red-bright:    #ff5f7a;
+
+  /* --- font: swap the first family to switch --- */
+  --font:          "JetBrainsMono Nerd Font", "JetBrains Mono", "Fira Code",
+                   "Fira Mono", "SFMono-Regular", Consolas, Menlo, monospace;
+}
+
+body {
+    background: var(--bg) !important;
+    font-family: var(--font);
+}
+
+body #body a:link,
+body #body a {
+    color: var(--fg-dim);
+}
+
+body #body a:visited {
+    color: var(--purple);
+}
+
+body #body .roundbox-lt,
+body #body .roundbox-rt,
+body #body .roundbox-lb,
+body #body .roundbox-rb {
+    display: none !important;
+}
+
+body #body #pageContent .topic {
+    filter: invert(0.3);
+}
+
+body #body #sidebar,
+body #body #footer {
+    opacity: 0.1;
+    transition: 0.9s opacity;
+}
+
+body #body #sidebar:hover,
+body #body #footer:hover {
+    opacity: 1;
+}
+
+body #body .problem-statement .sample-tests .title,
+body #body .roundbox .rtable td,
+body #body .roundbox .rtable th,
+body #body .roundbox .titled {
+    border-color: var(--border-soft);
+}
+
+body #body .search,
+body #body .problem-statement .sample-tests .input,
+body #body .problem-statement .sample-tests .output,
+body #body #footer {
+    border-color: var(--border);
+}
+
+body #body .search {
+    background-color: var(--bg-panel-2);
+    color: var(--fg);
+}
+
+body #body .second-level-menu-list li.backLava {
+    background: var(--bg-panel-2) !important;
+    border-radius: 6px;
+}
+
+body #body .second-level-menu-list li.backLava > * {
+    display: none;
+}
+
+body #body .second-level-menu-list li a {
+    color: var(--fg-dim);
+}
+
+body #body #pageContent {
+    padding-top: 50px;
+}
+
+body #body {
+    max-width: 90vw;
+    min-width: initial;
+    width: 906px;
+}
+
+body #body #header .roundbox {
+    color: var(--fg);
+}
+
+body #body #header > div:first-child img {
+    filter: invert(0.88);
+}
+
+body #body .header-bell__img {
+    filter: invert(0.88);
+}
+
+body #body .menu-list li a {
+    color: var(--fg);
+}
+
+body #body #footer {
+    color: var(--fg);
+    font-size: 12px;
+    margin-top: 100px;
+    padding-top: 50px;
+}
+
+body #body #footer a {
+    color: var(--fg);
+}
+
+body #body #sidebar {
+    position: absolute;
+    margin: 0;
+    left: 100%;
+}
+
+body #body .content-with-sidebar {
+    margin-right: 1em !important;
+}
+
+body #body div.ttypography {
+    color: var(--fg);
+}
+
+body #body div.ttypography .MathJax {
+    color: var(--fg) !important;
+}
+
+body #body .roundbox {
+    background-color: var(--bg-panel) !important;
+    color: var(--fg);
+    border-color: var(--border-soft);
+}
+
+body #body .roundbox table.rtable a {
+    color: var(--fg-dim) !important;
+}
+
+body #body .roundbox .dark {
+    background-color: var(--bg-deep);
+}
+
+body #body .roundbox .caption {
+    color: var(--blue);
+}
+
+body #body .problem-statement .sample-tests pre {
+    background-color: var(--bg-deep);
+    color: var(--fg);
+}
+
+body #body select {
+    background-color: rgb(36 40 59 / 0.55);
+    color: var(--fg-dim);
+}
+
+body #body input[type="submit"],
+body #body button {
+    background-color: var(--bg-panel-2);
+    border: 1px solid var(--border);
+    color: var(--fg) !important;
+    cursor: pointer;
+}
+
+body #body input[type="submit"]:hover,
+body #body button:hover {
+    background-color: var(--blue);
+    border-color: var(--blue);
+    color: var(--bg) !important;
+}
+
+body #body .pagination ul li {
+    color: var(--fg-dim);
+}
+
+body #body .pagination span.active {
+    border: 1px solid var(--border);
+    background-color: var(--bg-panel-3);
+}
+
+body #body .pagination .inactive {
+    color: var(--fg-faint);
+}
+
+body #body .pagination .arrow {
+    color: var(--fg-dim);
+}
+
+body #body .sidebar-menu ul a {
+    color: var(--fg-dim);
+}
+
+body #body .sidebar-menu ul li {
+    border-color: var(--border);
+    border-radius: 5px;
+}
+
+body #body .sidebar-menu ul li:hover,
+body #body .sidebar-menu ul li.active {
+    background-color: var(--bg-panel-3);
+}
+
+body #body .verdict-unsuccessful-challenge {
+    color: var(--fg-faint);
+}
+
+body #body .verdict-challenged {
+    color: var(--cyan);
+}
+
+body #body .cell-accepted {
+    color: var(--green);
+}
+
+body #body .cell-rejected {
+    color: var(--red);
+}
+
+body #body #facebox .content {
+    filter: invert(0.8);
+}
+
+body #body img.standings-flag {
+    filter: invert(1);
+}
+
+body #body .custom-links-pagination .active {
+    color: var(--fg-dim);
+}
+
+body #body ._CatalogViewFrame_catalog {
+    filter: invert(1);
+}
+
+body #body .problem-statement .test-example-line-even {
+    background: var(--bg-panel-2);
+}
+
+body #body .test-example-line {
+    transition: all 0.15s ease;
+}
+
+body #body .test-example-line[style="background-color: rgb(255, 253, 231);"] {
+    color: #000;
+    font-size: large;
+}
+
+body #body .spoiler-content {
+    background-color: transparent;
+}
+
+body #body h1 > *,
+body #body h2 > *,
+body #body h3 > *,
+body #body h4 > *,
+body #body h5 > *,
+body #body h6 > * {
+    filter: invert(1);
+}
+
+body #body pre:has(.prettyprint) {
+    border: 2px dashed var(--purple);
+    padding: 12px;
+}
+
+body #body .prettyprint {
+    filter: brightness(5);
+}
+
+body #body .prettyprint .pln {
+    color: white;
+}
+}
+
+@-moz-document url-prefix("https://codeforces.com") {
+/* Codeforces Datatable and Problem table */
+
+body #body .datatable {
+    filter: invert(0.88);
+}
+
+body #body .datatable .problems .accepted-problem .act {
+    filter: invert(1);
+}
+
+body #body .datatable .problems .right img {
+    filter: invert(1);
+}
+
+body #body .datatable .problems .accepted-problem td.id {
+    border-left: 6px solid #2b1236 !important;
+}
+
+body #body .contests-table .datatable .state {
+    filter: invert(1);
+}
+
+body #body .datatable td[problemid] > span {
+    filter: invert(1);
+}
+
+body #body .datatable td[problemid] > span.cell-rejected {
+    filter: invert(0.5);
+}
+
+body #body .datatable .user-legendary,
+body #body .datatable .legendary-user-first-letter,
+body #body .datatable .user-red,
+body #body .datatable .user-fire,
+body #body .datatable .user-yellow,
+body #body .datatable .user-violet,
+body #body .datatable .user-orange,
+body #body .datatable .user-blue,
+body #body .datatable .user-cyan,
+body #body .datatable .user-green,
+body #body .datatable .rated-user {
+    filter: invert(1);
+}
+
+body #body .datatable .user-admin,
+body #body .datatable .user-black,
+body #body .datatable .legendary-user-first-letter {
+    filter: invert(0) !important;
+}
+
+body #body .datatable .user-legendary {
+    color: var(--cyan) !important;
+    filter: invert(0) !important;
+}
+}
+
+@-moz-document url-prefix("https://codeforces.com") {
+/* Compatible with carrot extensions */
+.carrot-final-delta > span,
+.carrot-final-performance > span,
+.carrot-rank-change .rated-user {
+    filter: invert(1);
+}
+
+.carrot-final-delta.top > span,
+.carrot-final-performance.top > span {
+    filter: invert(0) !important;
+}
+}
+
+@-moz-document url-prefix("https://codeforces.com") {
+/* Compatible with Codeforces Enhancer extensions */
+body #body .datatable .l-сpp,
+body #body .datatable .l-gcc,
+body #body .datatable .l-java,
+body #body .datatable .l-kotlin,
+body #body .datatable .l-csharp,
+body #body .datatable .l-python2,
+body #body .datatable .l-python3,
+body #body .datatable .l-pypy,
+body #body .datatable .l-d,
+body #body .datatable .l-go,
+body #body .datatable .l-rust,
+body #body .datatable .l-delphi,
+body #body .datatable .l-js,
+body #body .datatable .l-perl,
+body #body .datatable .l-php,
+body #body .datatable .l-ruby,
+body #body .datatable .l-haskell,
+body #body .datatable .l-ocaml,
+body #body .datatable .l-scala {
+    filter: invert(1);
+}
+
+body #body .datatable td[problemid].l-gcpp > span,
+body #body .datatable td[problemid].l-gcc > span,
+body #body .datatable td[problemid].l-java > span,
+body #body .datatable td[problemid].l-kotlin > span,
+body #body .datatable td[problemid].l-csharp > span,
+body #body .datatable td[problemid].l-python2 > span,
+body #body .datatable td[problemid].l-python3 > span,
+body #body .datatable td[problemid].l-pypy > span,
+body #body .datatable td[problemid].l-d > span,
+body #body .datatable td[problemid].l-go > span,
+body #body .datatable td[problemid].l-rust > span,
+body #body .datatable td[problemid].l-delphi > span,
+body #body .datatable td[problemid].l-js > span,
+body #body .datatable td[problemid].l-perl > span,
+body #body .datatable td[problemid].l-php > span,
+body #body .datatable td[problemid].l-ruby > span,
+body #body .datatable td[problemid].l-haskell > span,
+body #body .datatable td[problemid].l-ocaml > span,
+body #body .datatable td[problemid].l-scala > span {
+    filter: invert(0);
+}
+
+body #body .datatable td[problemid].l-gcpp > span.cell-rejected,
+body #body .datatable td[problemid].l-gcc > span.cell-rejected,
+body #body .datatable td[problemid].l-java > span.cell-rejected,
+body #body .datatable td[problemid].l-kotlin > span.cell-rejected,
+body #body .datatable td[problemid].l-csharp > span.cell-rejected,
+body #body .datatable td[problemid].l-python2 > span.cell-rejected,
+body #body .datatable td[problemid].l-python3 > span.cell-rejected,
+body #body .datatable td[problemid].l-pypy > span.cell-rejected,
+body #body .datatable td[problemid].l-d > span.cell-rejected,
+body #body .datatable td[problemid].l-go > span.cell-rejected,
+body #body .datatable td[problemid].l-rust > span.cell-rejected,
+body #body .datatable td[problemid].l-delphi > span.cell-rejected,
+body #body .datatable td[problemid].l-js > span.cell-rejected,
+body #body .datatable td[problemid].l-perl > span.cell-rejected,
+body #body .datatable td[problemid].l-php > span.cell-rejected,
+body #body .datatable td[problemid].l-ruby > span.cell-rejected,
+body #body .datatable td[problemid].l-haskell > span.cell-rejected,
+body #body .datatable td[problemid].l-ocaml > span.cell-rejected,
+body #body .datatable td[problemid].l-scala > span.cell-rejected {
+    filter: invert(0.65);
+}
+}
+
+@-moz-document url-prefix("https://codeforces.com") {
+/* Compatible with Codeforces Better (https://greasyfork.org/users/747162) plugins */
+body #body .translate-problem-statement {
+    background-color: var(--bg);
+}
+}

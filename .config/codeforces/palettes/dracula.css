@@ -1,0 +1,49 @@
+/*
+ * Codeforces — Dracula palette
+ * =============================
+ * Replace the ENTIRE :root block inside codeforces-tokyonight.css with this
+ * one to switch to a Dracula look. All other rules stay the same.
+ */
+
+:root {
+  /* surfaces (darkest -> lightest) */
+  --bg:            #1e1f29;   /* page background                    */
+  --bg-deep:       #191a21;   /* footer / edges                     */
+  --bg-panel:      #282a36;   /* cards, table rows, sidebars        */
+  --bg-panel-2:    #2e3040;   /* raised panels / hover              */
+  --bg-panel-3:    #343746;   /* inputs, hover                      */
+  --bg-sunken:     #191a21;   /* code blocks, sample tests          */
+
+  /* text */
+  --fg:            #f8f8f2;   /* primary text (foreground)          */
+  --fg-dim:        #d8d8de;   /* secondary / muted                  */
+  --fg-faint:      #6272a4;   /* borders, disabled                  */
+
+  /* bands */
+  --border:        #44475a;
+  --border-soft:   #343746;
+
+  /* accent */
+  --blue:          #6272a4;   /* links, primary accent              */
+  --purple:        #bd93f9;   /* secondary accent, stars            */
+  --cyan:          #8be9fd;   /* info                              */
+  --teal:          #8be9fd;
+  --green:         #50fa7b;   /* accepted / solved                  */
+  --yellow:        #f1fa8c;   /* pending / warns                    */
+  --orange:        #ffb86c;   /* +delta / special                   */
+  --red:           #ff5555;   /* wrong / -delta                     */
+  --red-bright:    #ff6e6e;
+
+  /* Codeforces rating colors, tuned for dark bg */
+  --user-gray:     #a4a8c1;
+  --user-green:    #50fa7b;
+  --user-cyan:     #8be9fd;
+  --user-blue:     #6c8cff;
+  --user-violet:   #bd93f9;
+  --user-orange:   #ffb86c;
+  --user-red:      #ff6e6e;
+  --user-legendary: #ff79c6;
+
+  --code-font: "JetBrains Mono", "Fira Code", Consolas, Menlo,
+               "Courier New", monospace;
+}

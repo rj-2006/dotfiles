@@ -25,6 +25,7 @@ echo "==> Linking dotfiles from $DOTFILES_DIR"
 # ~/.config/* (whole dirs)
 link "$DOTFILES_DIR/.config/nvim"  "$HOME_DIR/.config/nvim"
 link "$DOTFILES_DIR/.config/kitty" "$HOME_DIR/.config/kitty"
+link "$DOTFILES_DIR/.config/codeforces" "$HOME_DIR/.config/codeforces"
 
 # home files
 link "$DOTFILES_DIR/gitconfig" "$HOME_DIR/.gitconfig"

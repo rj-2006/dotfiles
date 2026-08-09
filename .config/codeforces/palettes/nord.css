@@ -1,0 +1,49 @@
+/*
+ * Codeforces — Nord palette
+ * ==========================
+ * Replace the ENTIRE :root block inside codeforces-tokyonight.css with this
+ * one to switch to a Nord look. All other rules stay the same.
+ */
+
+:root {
+  /* surfaces (darkest -> lightest) */
+  --bg:            #2e3440;   /* page background                    */
+  --bg-deep:       #242933;   /* footer / edges                     */
+  --bg-panel:      #2e3440;   /* cards, table rows, sidebars        */
+  --bg-panel-2:    #3b4252;   /* raised panels / hover              */
+  --bg-panel-3:    #434c5e;   /* inputs, hover                      */
+  --bg-sunken:     #242933;   /* code blocks, sample tests          */
+
+  /* text */
+  --fg:            #eceff4;   /* primary text (snow)                */
+  --fg-dim:        #d8dee9;   /* secondary / muted                  */
+  --fg-faint:      #81a1c1;   /* borders, disabled                  */
+
+  /* bands */
+  --border:        #4c566a;
+  --border-soft:   #3b4252;
+
+  /* accent (frost) */
+  --blue:          #81a1c1;   /* links, primary accent              */
+  --purple:        #b48ead;   /* secondary accent, stars            */
+  --cyan:          #88c0d0;   /* info                              */
+  --teal:          #8fbcbb;
+  --green:         #a3be8c;   /* accepted / solved                  */
+  --yellow:        #ebcb8b;   /* pending / warns                    */
+  --orange:        #d08770;   /* +delta / special                   */
+  --red:           #bf616a;   /* wrong / -delta                     */
+  --red-bright:    #e56a75;
+
+  /* Codeforces rating colors, tuned for dark bg */
+  --user-gray:     #a8b2c8;
+  --user-green:    #a3be8c;
+  --user-cyan:     #88c0d0;
+  --user-blue:     #81a1c1;
+  --user-violet:   #b48ead;
+  --user-orange:   #d08770;
+  --user-red:      #e56a75;
+  --user-legendary: #ff5f87;
+
+  --code-font: "JetBrains Mono", "Fira Code", Consolas, Menlo,
+               "Courier New", monospace;
+}
